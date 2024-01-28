@@ -62,6 +62,11 @@ pipeline{
             }
           }
     }
+     stage('Install Typescript') {
+        steps {
+           sh 'npm install typescript'
+            }
+         }
      stage ("uploadArtifact") {
         steps {
         nexusArtifactUploader(
