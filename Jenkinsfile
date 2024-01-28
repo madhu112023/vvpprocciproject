@@ -61,7 +61,7 @@ pipeline{
             }
           }
     }
-     stage ('uploadArtifact') {
+     stage ("uploadArtifact") {
         steps {
         nexusArtifactUploader(
         nexusVersion: 'nexus3',
