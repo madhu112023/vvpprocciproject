@@ -59,7 +59,29 @@ pipeline{
                    -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
             }
           }
+
+
     }
+    stage ('uploadArtifact') {
+        steps {
+        nexusArtifactUploader(
+        nexusVersion: 'nexus3',
+        protocol: 'http',
+        nexusUrl: "${NEXUSIP}:${NEXUSPORT},
+        groupId: 'QA',
+        version: "${env.BUIL_ID}-${env.BUILD_TIMESTAMP}",
+        repository: "${RELEASE_REPO}",
+        credentialsId: "${NEXUS_LOGIN}",
+        artifacts: [
+            [artifactId: 'vproapp',
+             classifier: '',
+             file: 'target/vprofile-v2.war',
+             type: 'war']
+        ]
+     )
+    }
+   }
+
    
     }
 }
