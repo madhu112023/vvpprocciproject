@@ -6,19 +6,19 @@ def COLOR_MAP = [
 pipeline{
     agent any
     tools {
-        maven "Maven3"
+        maven "MAVEN3"
         jdk "OracleJDK8"
     }
 
     environment {
-         SNAP_REPO = 'vprofile-snapshot'
+         SNAP_REPO = 'vprofile_snapshot'
          NEXUS_USER = 'admin'
          NEXUS_PASS = 'admin123'
-         RELEASE_REPO = 'vprofile-release'
-         CENTRAL_REPO = 'vpro-maven-central'
+         RELEASE_REPO = 'vprofile_release'
+         CENTRAL_REPO = 'vpro_maven_central'
          NEXUSIP = '172.31.59.2'
          NEXUSPORT = '8081'
-         NEXUS_GRP_REPO = 'vpro-maven-group'
+         NEXUS_GRP_REPO = 'vpro_maven_group'
          NEXUS_LOGIN = 'nexuslogin' 
          SONARSERVER = 'sonarserver'
          SONARSCANNER = 'sonarscanner'
